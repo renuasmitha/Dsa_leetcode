@@ -1,31 +1,27 @@
 class Solution {
     public int[] topKFrequent(int[] nums, int k) {
+        
+        int[] freq=new int[k];
+        HashMap<Integer,Integer> hash=new HashMap<>();
+        for(int  i:nums){
+            hash.put(i,hash.getOrDefault(i,0)+1);
 
-        HashMap<Integer, Integer> freq = new HashMap<>();
-        int[] sol = new int[k];
-
-        // Count frequency
-        for (int i : nums) {
-            freq.put(i, freq.getOrDefault(i, 0) + 1);
         }
-
-        // Find k most frequent
-        for (int i = 0; i < k; i++) {
-
-            int max = 0;
-            int maxKey = 0;
-
-            for (int key : freq.keySet()) {
-                if (freq.get(key) > max) {
-                    max = freq.get(key);
-                    maxKey = key;
+        for(int j=0;j<k;j++){
+            int max=0;
+            int maxindex=0;
+            for(int l:hash.keySet()){
+                if(hash.get(l)>max){
+                    max=hash.get(l);
+                    maxindex=l;
                 }
+               
             }
-
-            sol[i] = maxKey;
-            freq.remove(maxKey);
+             freq[j]=maxindex;
+            hash.remove(maxindex);
         }
 
-        return sol;
+
+    return freq;
     }
 }
