@@ -21,7 +21,7 @@ class Solution {
                     continue;
                 }
 
-                int boxIndex = (i / 3) * 3 + (j / 3);
+                int boxIndex = (i/ 3) * 3 + (j / 3);
 
                 if (rows[i].contains(num) ||
                     cols[j].contains(num) ||
@@ -39,3 +39,7 @@ class Solution {
         return true;
     }
 }
+
+
+
+
